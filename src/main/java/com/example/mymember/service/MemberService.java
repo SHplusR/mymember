@@ -86,4 +86,14 @@ public class MemberService {
         memberRepository.deleteById(id);
 
     }
+
+    public String emailCheck(String memberEmail) {
+        Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberEmail(memberEmail);
+        if(optionalMemberEntity.isPresent()){
+            return null;
+        }
+        else{
+            return "ok";
+        }
+    }
 }
